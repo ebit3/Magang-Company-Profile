@@ -2933,3 +2933,42 @@ section,
 .btn i {
 	margin-right: 8px;
 }
+
+.product-img img {
+	width: 100%; /* Mengatur gambar agar menyesuaikan lebar kolom */
+	height: 350px; /* Memberikan tinggi tetap untuk seragam */
+	object-fit: cover; /* Memastikan gambar terpotong rapi tanpa distorsi */
+	border-radius: 8px; /* Memberikan sudut melengkung pada gambar */
+	transition: transform 0.3s ease; /* Efek saat gambar disentuh atau dihover */
+}
+
+.product-img img:hover {
+	transform: scale(1.05); /* Zoom kecil saat hover untuk memberikan efek interaktif */
+}
+
+@media (max-width: 768px) {
+	.product-img img {
+		height: 200px; /* Tinggi gambar lebih kecil untuk perangkat dengan layar kecil */
+	}
+}
+
+.product-img {
+	position: relative;
+	overflow: hidden; /* Memastikan gambar tidak keluar dari area kontainer */
+}
+
+.product-img::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.2); /* Overlay hitam transparan */
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.product-img:hover::after {
+	opacity: 1; /* Overlay muncul saat hover */
+}
